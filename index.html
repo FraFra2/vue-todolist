@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="app">
+        <div class="container mx-auto">
+            <ul class = "w-[50%] mx-auto">
+                <li @click = "changeClass()" v-for = "(task, i) in todos" class = "decoration-red-500 list-none flex justify-between" :class="{ underline : task.done }">
+                    {{task.task}}
+                    <span>
+                        <i class="fa-solid fa-trash-can"></i>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/index.js"></script>
+</body>
+</html>
