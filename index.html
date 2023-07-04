@@ -8,17 +8,32 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body  class = "bg-slate-500">
     <div id="app">
         <div class="container mx-auto">
-            <ul class = "w-[50%] mx-auto">
-                <li @click = "changeClass()" v-for = "(task, i) in todos" class = "decoration-red-500 list-none flex justify-between" :class="{ underline : task.done }">
-                    {{task.task}}
+            <header class = "text-center pt-5">
+                <h1 class = "text-5xl text-white">
+                    TO BOO LIST
+                </h1>
+            </header>
+
+            <ul class = "w-[50%] transition-all	 mx-auto hover:w-[55%]">
+                <li v-for = "(task, i) in todos" class = "decoration-sky-600 text-slate-800 decoration-8	 list-none flex justify-between bg-slate-300 p-[1rem] my-5 rounded-2xl" :class="{ underline : task.done }">
+                    <span @click = "changeClass(i)">
+                        {{task.task}}
+                    </span>
                     <span @click = "deleteTask(i)">
-                        <i class="fa-solid fa-trash-can"></i>
+                        <i class="fa-solid fa-trash-can text-red-600"></i>
                     </span>
                 </li>
             </ul>
+
+            <footer class = "text-center">
+                <input v-model = "inputTask" type="text" :class = "btnInpClasses">
+                <form action="" @click.prevent = "addTask">
+                    <button class = "transition-all text-white bg-sky-600 px-6 hover:bg-sky-700 hover:scale-125" :class = "btnInpClasses">Add Task</button>
+                </form>
+            </footer>
         </div>
     </div>
     <script src="js/index.js"></script>
