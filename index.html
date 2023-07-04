@@ -14,7 +14,7 @@
             <ul class = "w-[50%] mx-auto">
                 <li @click = "changeClass()" v-for = "(task, i) in todos" class = "decoration-red-500 list-none flex justify-between" :class="{ underline : task.done }">
                     {{task.task}}
-                    <span>
+                    <span @click = "deleteTask(i)">
                         <i class="fa-solid fa-trash-can"></i>
                     </span>
                 </li>

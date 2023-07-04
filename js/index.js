@@ -28,7 +28,8 @@ createApp({
     },
     methods: {
         deleteTask(index){
-            this.todos.trim(index, 1);
+            this.todos.splice(index, 1);
+            console.log(this.todos[index]);
         },
         changeClass(){
             
